@@ -1,0 +1,84 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+void create();
+void display();
+void exit();
+struct node
+{
+	int data;
+	struct node* next;
+};
+struct node* start=NULL;
+int main()
+
+
+{
+	int n;
+	while (1)
+	{
+	    
+		
+		
+	
+	cout<<" Enter the operation number : ";
+	cin>>n;
+	switch(n)
+	{
+		case 1:
+			create();
+			break;
+		case 2:
+			display();
+			break;
+		case 3:
+			exit(0);
+			break;
+		default:
+			cout<<"invalid";
+			break;
+		}
+}
+}
+void create()
+{
+	struct node *ptr, *temp; int n;
+	ptr = (struct node*)malloc(sizeof(struct node));
+	cout<<" Enter value : ";
+	cin>>n ;
+	ptr->data=n;
+	ptr->next=NULL;
+	if( start==NULL)
+	{
+		start=ptr;
+	}
+	else
+	{
+		temp=start;
+		while(temp->next!=NULL)
+		{
+			temp=temp->next;
+		}
+		temp->next=ptr;
+	}
+}
+void display()
+{
+	struct node*temp;
+	{
+		if( start==NULL)
+		{
+			cout<<" List is empty." ;
+		}
+	else
+	{
+		temp=start;
+		while( temp!=NULL)
+		{
+			cout<<temp->data<< endl;
+			temp=temp->next;
+			
+		}
+	}
+}
+}
