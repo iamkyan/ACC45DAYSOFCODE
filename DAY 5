@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class time
+{
+	public:
+		int h,m,s;
+		void input(){
+			cout<<"Enter hours";
+			cin>>h;
+			cout<<"Enter minutes";
+			cin>>m;
+			cout<<"Enter seconds";
+			cin>>s;
+		}
+		void display()
+		{
+			cout<<h<<":"<<m<<":"<<s;
+		}
+		time operator+(time p){
+			time x;
+			x.s=s+p.s;
+			if(x.s>=60){
+				x.s=x.s-60;
+				x.m=x.m+1;
+			}
+			x.m=x.m+m+p.m;
+			if(x.m>=60){
+				x.m=x.m-60;
+				x.h=x.h+1;
+			}
+			x.h=h+p.h;
+			return(x);
+		}
+};
+int main()
+{
+	time o1,o2,o3;
+	o1.input();
+	o2.input();
+	o3=o1+o2;
+	o3.display();
+	}
