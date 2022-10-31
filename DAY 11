@@ -1,0 +1,28 @@
+Node deleteNode(Node* head, Node* toBeDeleted)
+{
+
+    // If the node to be deleted is the head node.
+    if(head == toBeDeleted)
+    {
+        return head.next;
+    }
+    
+    Node* temp = head;
+   
+    while( temp->next != NULL )
+    {
+
+        // Searching for the previous node of the node to be deleted.
+        if(temp->next == toBeDeleted)
+        {
+            temp->next = temp->next->next;
+
+            // Freeing up the memory of the node to be deleted.
+            return head;
+        }
+        temp = temp->next;
+    }
+
+    // If no node matches in the Linked List.
+    return head;
+}
